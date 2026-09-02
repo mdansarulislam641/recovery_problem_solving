@@ -4,14 +4,13 @@
 function describeValue (value){
 
     if(Boolean(value)){
-        return `"${typeof(value)}" | "truthy"`;
+        return `"${typeof(value)} | truthy"`;
     }
-   
-    return `"${typeof(value)} | falsy"`;
 
+    return `"${typeof(value)} | falsy"`;
 }
 
-// console.log(describeValue(NaN))
+
 
 
 // Question 2: Bangladesh Weekend Machine
@@ -23,21 +22,19 @@ function getDayType(userInput){
     switch (day) {
         case day = "friday":
         case day = "satarday":
-            return("Weekend");
+            return(`"Weekend"`);
 
         case day = "sunday":
         case day = "monday":
         case day = "tuesday":
         case day = "wednesday":
         case day = "thrusday":
-            return("Workding Day");
+            return(`"Workding Day"`);
 
         default:
-            return("Invalide Day")
+            return(`"Invalide Day"`)
     }
 }
-
-// console.log(getDayType("MONDAY"))
 
 
 
@@ -45,13 +42,11 @@ function getDayType(userInput){
 
 function validateUsername(username){
 
-    if(username.length < 4) return "Too Short";
-    else if(username.includes(" ")) return "No Space Allowed";
-    else if(username.toLowerCase().includes("admin")) return "Reserved Word";
-    else return "Available";
+    if(username.length < 4) return `"Too Short"`;
+    else if(username.includes(" ")) return `"No Space Allowed"`;
+    else if(username.toLowerCase().includes("admin")) return `"Reserved Word"`;
+    else return `"Available"`;
 }
-
-// console.log(validateUsername("abcddsfsd"))
 
 
 
@@ -62,47 +57,48 @@ function getCngFare(distance, isNight = false, waitingMinutes = 0){
     let totalFair = 50;
 
     if(distance > 2){
+
         if(!isNight){
 
             totalFair = (((distance - 2) * 15) + 50) + (waitingMinutes * 2);
             return totalFair;
         }
         else{
+
             let fairWithWaitingMinute = (((distance - 2) * 15) + 50) + (waitingMinutes * 2);
 
-            return totalFair = (fairWithWaitingMinute * 20)/100 + fairWithWaitingMinute;
+            return totalFair = fairWithWaitingMinute + (fairWithWaitingMinute * 20)/100 ;
         }
-
     }
-
     return totalFair;
-
 };
 
-// console.log(getCngFare(5, true, 10));
 
 
 // Question 5: Run Chase Commentator
 
 const getChaseVerdict = (target, scored, ballsLeft)=>{
+
     const runsNeeded = target - scored;
     let verdict = "";
 
     if(runsNeeded <=0){
-        return `"Won"`
+        return `"Won"`;
     }
+
     else if (ballsLeft <= 0){
         return `"Lost"`;
     }
+
     else{
         const requiredRate = (runsNeeded / ballsLeft) * 6;
 
         verdict = requiredRate <=6 ? "Comfortable" : requiredRate <=12 ? "Tough" : "Almost Impossible";
 
-        const result = `"Need ${runsNeeded} runs in ${ballsLeft} balls | ${verdict}"`
+        const result = `"Need ${runsNeeded} runs in ${ballsLeft} balls | ${verdict}"`;
+
         return result;
     }
 
 }
 
-console.log(getChaseVerdict(200, 200, 12))
