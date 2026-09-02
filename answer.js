@@ -29,10 +29,10 @@ function getDayType(userInput){
         case day = "tuesday":
         case day = "wednesday":
         case day = "thrusday":
-            return(`"Workding Day"`);
+            return(`"Working Day"`);
 
         default:
-            return(`"Invalide Day"`)
+            return(`"Invalid Day"`)
     }
 }
 
